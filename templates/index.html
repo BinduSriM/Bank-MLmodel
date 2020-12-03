@@ -1,0 +1,241 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <!-- Required meta tags -->
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, 
+        initial-scale=1, shrink-to-fit=no"> 
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity= 
+"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> 
+
+    <link rel="stylesheet" href= 
+"https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity= 
+"sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous"> 
+
+    <title> 
+        Bank - Frontend
+    </title> 
+
+    <style>
+        .card{
+            background-color: #e6ccff;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100%;
+        }
+    </style>
+</head> 
+
+<body> 
+    <h2 align="center" style="padding:20px;">Bank Marketing Campaign Prediction</h2>
+    <form action="/predict" method="POST">
+    <div class="container"> 
+        <div class="row"> 
+            <div class="col-lg-6 mb-4"> 
+                <div class="card"> 
+                    <div class="card-body"> 
+                        <h5 class="card-title">Last Contact details(Client) of Current Campaign</h5> 
+                        <table>
+                        <tr>
+                            <td><label>Last Contact Duration*** </label></td>
+                            <td><input type="number" step="any" name="duration"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Contact communication type </label></td>
+                            <td><select name="contact">
+                                <option values="">-select-</option>
+                                <option value="cellular">Cellular</option>
+                                <option value="telephone">Telephone</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Last contact day of the week </label></td>
+                            <td><select name="day">
+                                <option values="">-select-</option>
+                                <option value="mon">Monday</option>
+                                <option value="tue">Tuesday</option>
+                                <option value="web">Wednesday</option>
+                                <option value="thu">Thursday</option>
+                                <option value="fri">Friday</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Last contact month of the year </label></td>
+                            <td><select name="month">
+                                <option values="">-select-</option>
+                                <option value="jan">January</option>
+                                <option value="feb">February</option>
+                                <option value="mar">March</option>
+                                <option value="apr">April</option>
+                                <option value="may">May</option>
+                                <option value="june">June</option>
+                                <option value="july">July</option>
+                                <option value="aug">August</option>
+                                <option value="sept">September</option>
+                                <option value="oct">October</option>
+                                <option value="nov">November</option>
+                                <option value="dec">December</option>
+                            </select></td>
+                        </tr>
+                        </table>
+                    </div> 
+                </div> 
+            </div> 
+            <div class="col-lg-6 mb-4"> 
+                <div class="card"> 
+                    <div class="card-body"> 
+                        <h5 class="card-title">Social and Economic context attributes of client</h5> 
+                        <table>
+                        <tr>
+                            <td><label>Euribor(3 month rate) </label></td>
+                            <td><input type="number" step="any" name="euribor"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Consumer confidence index </label></td>
+                            <td><input type="number" name="conf" step="any"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Consumer price index </label></td>
+                            <td><input type="number" name="price" step="any"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Employee variation rate </label></td>
+                            <td><input type="number" name="varrate" step="any"/></td>
+                        </tr>
+                        </table>
+                    </div> 
+                </div> 
+            </div> 
+            <div class="col-lg-6 mb-4"> 
+                <div class="card"> 
+                    <div class="card-body"> 
+                        <h5 class="card-title">Previous Campaign details of client</h5> 
+                        <table align="center">
+                        <tr>
+                            <td><label>Number of contacts performed during this campaign and for this client (Campaign) </label></td>
+                            <td><input type="number" name="campaign"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Outcome of previous campaign </label></td>
+                            <td><select name="outcome">
+                                <option values="">-select-</option>
+                                <option value="success">Success</option>
+                                <option value="failure">Failure</option>
+                                <option values="nonexistent">Non-Existent</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>No.of days passed by after that client was last contacted from a previous campaign </label></td>
+                            <td><input type="number" name="pdays"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Number of contacts performed before this campaign and for this client (Previous Campaign) </label></td>
+                            <td><input type="number" name="previous"/></td>
+                        </tr>
+                        </table>
+                    </div> 
+                </div> 
+            </div> 
+            <div class="col-lg-6 mb-4"> 
+                <div class="card"> 
+                    <div class="card-body"> 
+                        <h5 class="card-title">Personal details of client</h5> 
+                        <table>
+                        <tr>
+                            <td><label>Age </label></td>
+                            <td><input type="number" name="age"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Job </label></td>
+                            <td><select name="job">
+                                <option values="">-select-</option>
+                                <option value="admin">Admin</option>
+                                <option value="blue">Blue-collar</option>
+                                <option value="entrepreneur">Entrepreneur</option>
+                                <option value="housemaid">Housemaid</option>
+                                <option values="management">Management</option>
+                                <option value="retired">Retired</option>
+                                <option value="self">Self-employed</option>
+                                <option value="services">Services</option>
+                                <option value="student">Student</option>
+                                <option values="technician">Technician</option>
+                                <option value="unemployed">Unemployed</option>
+                                <option value="unknown">Unknown</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Education </label></td>
+                            <td><select name="education">
+                                <option values="">-select-</option>
+                                <option value="4y">Basic.4Y</option>
+                                <option value="6y">Basic.6Y</option>
+                                <option value="9y">Basic.9Y</option>
+                                <option value="hs">High School</option>
+                                <option values="illiterate">Illiterate</option>
+                                <option value="pc">Professional Course</option>
+                                <option value="ud">University Degree</option>
+                                <option value="unknown">Unknown</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Marital Status </label></td>
+                            <td><select name="marital">
+                                <option values="">-select-</option>
+                                <option value="divorced">Divorced/Widowed</option>
+                                <option value="married">Married</option>
+                                <option value="single">Single</option>
+                                <option value="unknown">Unknown</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Has credit in default? </label></td>
+                            <td><select name="default">
+                                <option values="">-select-</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option values="unknown">Unknown</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Has housing loan? </label></td>
+                            <td><select name="housing">
+                                <option values="">-select-</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option values="unknown">Unknown</option>
+                            </select></td>
+                        </tr>
+                        <tr>
+                            <td><label>Has personal loan? </label></td>
+                            <td><select name="loan">
+                                <option values="">-select-</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                                <option values="unknown">Unknown</option>
+                            </select></td>
+                        </tr>
+                        </table>
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    <div align="center">  
+        <p>*****(Enter all the above details and click on submit to predict the client subscription.)*****</p> 
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div> 
+</form>
+
+<br>
+<br><h2 align="center">{{ prediction_text }}</h2><br><br>
+
+</body> 
+</html> 
